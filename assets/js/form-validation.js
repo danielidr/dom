@@ -52,10 +52,53 @@ function getToDom() {
     document.getElementsByTagName('div')[3].appendChild(ul_product);
 
     getH6Cart(0, "Product name", 4, "$12");
-
     getH6Cart(1, "Second product", 5, "$8");
-
     getH6Cart(2, "Third item", 6, "$5");
+
+    getLi ("list-group-item d-flex justify-content-between bg-light", 0);
+
+    let promo_div = getDiv ("text-success");
+    document.getElementsByTagName('li')[3].appendChild(promo_div);
+
+    let h6 = document.createElement("h6");
+    h6.setAttribute("class", "my-0");
+    let h6_text = document.createTextNode("Promo code");
+    h6.appendChild(h6_text);
+    document.getElementsByTagName('div')[7].appendChild(h6);
+
+    let small_prod = document.createElement("small");
+    let small_text = document.createTextNode("EXAMPLECODE");
+    small_prod.appendChild(small_text);
+    document.getElementsByTagName('div')[7].appendChild(small_prod);
+
+    let span = getSpan("text-success", "-$5");
+    document.getElementsByTagName('li')[3].appendChild(span);
+
+    getLi ("list-group-item d-flex justify-content-between", 0);
+
+    let span2 = getSpan("", "Total (USD)");
+    document.getElementsByTagName('li')[4].appendChild(span2);
+
+    let strong_total = getStrong("", "$20");
+    document.getElementsByTagName('li')[4].appendChild(strong_total);
+
+    let form_promo = getForm ("card p-2");
+    document.getElementsByTagName('div')[3].appendChild(form_promo);
+
+    let code_div = getDiv ("input-group");
+    document.getElementsByTagName('form')[0].appendChild(code_div);
+
+    let code_input = getInput ("form-control");
+    document.getElementsByTagName('div')[8].appendChild(code_input);
+    code_input.type = "text";
+    code_input.placeholder = "Promo code";
+
+    let button_div = getDiv ("input-group-append");
+    document.getElementsByTagName('div')[8].appendChild(button_div);
+
+    let redeem = getButton ("btn btn-secondary", "Redeem");
+    document.getElementsByTagName('div')[9].appendChild(redeem);
+    redeem.type = "submit";
 }
 
 function getDiv(name) {
@@ -69,7 +112,41 @@ function getSpan(classname, text) {
     let text_span = document.createTextNode(text);
     span.appendChild(text_span);
     span.setAttribute("class", classname);
-    return span
+    return span;
+}
+
+function getStrong(classname, text) {
+    let strong = document.createElement("strong");
+    let text_s = document.createTextNode(text);
+    strong.appendChild(text_s);
+    strong.setAttribute("class", classname);
+    return strong;
+}
+
+function getForm(classname) {
+    let form = document.createElement("form");
+    form.setAttribute("class", classname);
+    return form;
+}
+
+function getInput (classname) {
+    let input = document.createElement("input");
+    input.setAttribute("class", classname);
+    return input;
+}
+
+function getButton(classname, text) {
+    let button = document.createElement("button");
+    let text_s = document.createTextNode(text);
+    button.appendChild(text_s);
+    button.setAttribute("class", classname);
+    return button;
+}
+
+function getLi (classname, n_ul) {
+    let li = document.createElement("li");
+    li.setAttribute("class", classname);
+    document.getElementsByTagName('ul')[n_ul].appendChild(li);
 }
 
 function getH6Cart(li_n, text, div_n, price){

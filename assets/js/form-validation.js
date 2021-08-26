@@ -99,6 +99,131 @@ function getToDom() {
     let redeem = getButton ("btn btn-secondary", "Redeem");
     document.getElementsByTagName('div')[9].appendChild(redeem);
     redeem.type = "submit";
+
+    let form_div = getDiv ("col-md-8 order-md-1");
+    document.getElementsByTagName('div')[2].appendChild(form_div);
+
+    let h4_form = document.createElement("h4");
+    let h4_text_form = document.createTextNode("Billing address");
+    h4_form.appendChild(h4_text_form);
+    h4_form.setAttribute("class", "mb-3");
+    document.getElementsByTagName('div')[10].appendChild(h4_form);
+
+    let form_name = getForm ("needs-validation");
+    document.getElementsByTagName('div')[10].appendChild(form_name);
+    form_name.noValidate = true;
+
+    let div_row_name = getDiv("row");
+    document.getElementsByTagName('form')[1].appendChild(div_row_name);
+
+    let div_first = getDiv ("col-md-6 mb-3");
+    document.getElementsByTagName('div')[11].appendChild(div_first);
+
+    let label_first = getLabel ("First name", "firstName");
+    document.getElementsByTagName('div')[12].appendChild(label_first);
+
+    let input_first = getInput ("form-control");
+    document.getElementsByTagName('div')[12].appendChild(input_first);
+    input_first.type = "text";
+    input_first.placeholder = "";
+    input_first.id = "firstName";
+    input_first.value = "";
+    input_first.required = true;
+
+    let div_valid_name = getDiv("invalid-feedback");
+    document.getElementsByTagName('div')[12].appendChild(div_valid_name);
+    let valid_name_text = document.createTextNode("Valid first name is required.");
+    div_valid_name.appendChild(valid_name_text);
+
+    let div_last = getDiv ("col-md-6 mb-3");
+    document.getElementsByTagName('div')[11].appendChild(div_last);
+    let label_last = getLabel ("Last name", "lastName");
+    document.getElementsByTagName('div')[14].appendChild(label_last);
+    let input_last = getInput ("form-control");
+    document.getElementsByTagName('div')[14].appendChild(input_last);
+    input_first.type = "text";
+    input_first.placeholder = "";
+    input_first.id = "lastName";
+    input_first.value = "";
+    input_first.required = true;
+    let div_valid_last = getDiv("invalid-feedback");
+    document.getElementsByTagName('div')[14].appendChild(div_valid_last);
+    let valid_last_text = document.createTextNode("Valid last name is required.");
+    div_valid_last.appendChild(valid_last_text);
+
+    let div_username = getDiv ("mb-3");
+    document.getElementsByTagName('form')[1].appendChild(div_username);
+    let label_username = getLabel ("Username", "username");
+    document.getElementsByTagName('div')[16].appendChild(label_username);
+    let div_inputg = getDiv ("input-group");
+    document.getElementsByTagName('div')[16].appendChild(div_inputg);
+    let div_inputgp = getDiv ("input-group-prepend");
+    document.getElementsByTagName('div')[17].appendChild(div_inputgp);
+    let span_username = getSpan("input-group-text", "@");
+    document.getElementsByTagName('div')[18].appendChild(span_username);
+    let input_username = getInput ("form-control");
+    document.getElementsByTagName('div')[17].appendChild(input_username);
+    input_username.type = "text";
+    input_username.placeholder = "Username";
+    input_username.id = "username";
+    input_username.required = true;
+    let div_valid_username = getDiv("invalid-feedback");
+    document.getElementsByTagName('div')[17].appendChild(div_valid_username);
+    let valid_username_text = document.createTextNode("Your username is required.");
+    div_valid_username.appendChild(valid_username_text);
+    div_valid_username.style = "width: 100%";
+
+    let div_email = getDiv ("mb-3");
+    document.getElementsByTagName('form')[1].appendChild(div_email);
+    let label_email = getLabel ("Email ", "email");
+    document.getElementsByTagName('div')[20].appendChild(label_email);
+    let span_email = getSpan("text-muted", "(Optional)");
+    document.getElementsByTagName('label')[3].appendChild(span_email);
+    let input_email = getInput ("form-control");
+    document.getElementsByTagName('div')[20].appendChild(input_email);
+    input_email.type = "email";
+    input_email.placeholder = "you@example.com";
+    input_email.id = "email";
+    let div_valid_email = getDiv("invalid-feedback");
+    document.getElementsByTagName('div')[20].appendChild(div_valid_email);
+    let valid_email_text = document.createTextNode("Please enter a valid email address for shipping updates.");
+    div_valid_email.appendChild(valid_email_text);
+
+    let div_address = getDiv ("mb-3");
+    document.getElementsByTagName('form')[1].appendChild(div_address);
+    let label_address = getLabel ("Address", "address");
+    document.getElementsByTagName('div')[22].appendChild(label_address);
+    let input_address = getInput ("form-control");
+    document.getElementsByTagName('div')[22].appendChild(input_address);
+    input_address.type = "text";
+    input_address.placeholder = "1234 Main St";
+    input_address.id = "address";
+    input_address.required = true;
+    let div_valid_address = getDiv("invalid-feedback");
+    document.getElementsByTagName('div')[22].appendChild(div_valid_address);
+    let valid_address_text = document.createTextNode("Please enter your shipping address.");
+    div_valid_address.appendChild(valid_address_text);
+
+    let div_address2 = getDiv ("mb-3");
+    document.getElementsByTagName('form')[1].appendChild(div_address2);
+    let label_address2 = getLabel ("Address 2 ", "address2");
+    document.getElementsByTagName('div')[24].appendChild(label_address2);
+    let span_address2 = getSpan("text-muted", "(Optional)");
+    document.getElementsByTagName('label')[5].appendChild(span_address2);
+    let input_address2 = getInput ("form-control");
+    document.getElementsByTagName('div')[24].appendChild(input_address2);
+    input_address2.type = "text";
+    input_address2.placeholder = "Apartment or suite";
+    input_address2.id = "address2";
+
+    let div_details = getDiv ("row");
+    document.getElementsByTagName('form')[1].appendChild(div_details);
+    let div_country = getDiv ("col-md-5 mb-3");
+    document.getElementsByTagName('div')[25].appendChild(div_country);
+    let label_country = getLabel ("Country", "country");
+    document.getElementsByTagName('div')[26].appendChild(label_country);
+    let select_country = getSelect ("custom-select d-block w-100", "country", "United States");
+    document.getElementsByTagName('div')[26].appendChild(select_country);
 }
 
 function getDiv(name) {
@@ -141,6 +266,29 @@ function getButton(classname, text) {
     button.appendChild(text_s);
     button.setAttribute("class", classname);
     return button;
+}
+
+function getLabel (text, p_for) {
+    let label = document.createElement("label");
+    let text_s = document.createTextNode(text);
+    label.appendChild(text_s);
+    label.htmlFor = p_for;
+    return label;
+}
+
+function getSelect (classname, id_s, option) {
+    let select = document.createElement("select");
+    select.setAttribute("class", classname);
+    select.id = id_s;
+    select.required = true;
+
+    let chose = document.getElementById(id_s);
+    let c = document.createElement("option");
+    c.text = "Choose...";
+    chose.options.add(c, 0);
+    let n = document.createElement("option");
+    n.text = option;
+    chose.options.add(n, 1);
 }
 
 function getLi (classname, n_ul) {

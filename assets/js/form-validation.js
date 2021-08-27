@@ -222,8 +222,186 @@ function getToDom() {
     document.getElementsByTagName('div')[25].appendChild(div_country);
     let label_country = getLabel ("Country", "country");
     document.getElementsByTagName('div')[26].appendChild(label_country);
-    let select_country = getSelect ("custom-select d-block w-100", "country", "United States");
+    let select_country = getSelect ("custom-select d-block w-100", "country");
     document.getElementsByTagName('div')[26].appendChild(select_country);
+    getOptions ("country", "United States");
+    let div_valid_country = getDiv("invalid-feedback");
+    document.getElementsByTagName('div')[26].appendChild(div_valid_country);
+    let valid_address_country = document.createTextNode("Please select a valid country.");
+    div_valid_country.appendChild(valid_address_country);
+
+    let div_state = getDiv ("col-md-4 mb-3");
+    document.getElementsByTagName('div')[25].appendChild(div_state);
+    let label_state = getLabel ("State", "state");
+    document.getElementsByTagName('div')[28].appendChild(label_state);
+    let select_state = getSelect ("custom-select d-block w-100", "state");
+    document.getElementsByTagName('div')[28].appendChild(select_state);
+    getOptions ("state", "California");
+    let div_valid_state = getDiv("invalid-feedback");
+    document.getElementsByTagName('div')[28].appendChild(div_valid_state);
+    let valid_address_state = document.createTextNode("Please provide a valid state.");
+    div_valid_state.appendChild(valid_address_state);
+
+    let div_zip = getDiv ("col-md-3 mb-3");
+    document.getElementsByTagName('div')[25].appendChild(div_zip);
+    let label_zip = getLabel ("Zip", "zip");
+    document.getElementsByTagName('div')[30].appendChild(label_zip);
+    let input_zip = getInput ("form-control");
+    document.getElementsByTagName('div')[30].appendChild(input_zip);
+    input_zip.type = "text";
+    input_zip.placeholder = "";
+    input_zip.id = "zip";
+    input_zip.required = true;
+    let div_valid_zip = getDiv("invalid-feedback");
+    document.getElementsByTagName('div')[30].appendChild(div_valid_zip);
+    let valid_text_zip = document.createTextNode("Zip code required.");
+    div_valid_zip.appendChild(valid_text_zip);
+
+    let hr_shiping = getHr ("mb-4");
+    document.getElementsByTagName('form')[1].appendChild(hr_shiping);
+    let div_shiping = getDiv ("custom-control custom-checkbox");
+    document.getElementsByTagName('form')[1].appendChild(div_shiping);
+    let input_shiping = getInput ("custom-control-input");
+    document.getElementsByTagName('div')[32].appendChild(input_shiping);
+    input_shiping.type = "checkbox";
+    input_shiping.id = "same-address";
+    let label_shiping = getLabel ("Shipping address is the same as my billing address", "same-address");
+    document.getElementsByTagName('div')[32].appendChild(label_shiping);
+    label_shiping.setAttribute("class", "custom-control-label");
+
+    let div_save = getDiv ("custom-control custom-checkbox");
+    document.getElementsByTagName('form')[1].appendChild(div_save);
+    let input_save = getInput ("custom-control-input");
+    document.getElementsByTagName('div')[33].appendChild(input_save);
+    input_save.type = "checkbox";
+    input_save.id = "save-info";
+    let label_save = getLabel ("Save this information for next time", "save-info");
+    document.getElementsByTagName('div')[33].appendChild(label_save);
+    label_save.setAttribute("class", "custom-control-label");
+
+    let hr_payment = getHr ("mb-4");
+    document.getElementsByTagName('form')[1].appendChild(hr_payment);
+    let h4_payment = document.createElement("h4");
+    let h4_text_payment = document.createTextNode("Payment");
+    h4_payment.appendChild(h4_text_payment);
+    h4_payment.setAttribute("class", "mb-3");
+    document.getElementsByTagName('form')[1].appendChild(h4_payment);
+    let div_payment = getDiv ("d-block my-3");
+    document.getElementsByTagName('form')[1].appendChild(div_payment);
+
+    let div_credit = getDiv ("custom-control custom-radio");
+    document.getElementsByTagName('div')[34].appendChild(div_credit);
+    let input_credit = getInput ("custom-control-input");
+    document.getElementsByTagName('div')[35].appendChild(input_credit);
+    input_credit.type = "radio";
+    input_credit.id = "credit";
+    input_credit.name = "paymentMethod";
+    input_credit.defaultChecked = true; 
+    input_credit.required = true;
+    let label_credit = getLabel ("Credit card", "credit");
+    document.getElementsByTagName('div')[35].appendChild(label_credit);
+    label_credit.setAttribute("class", "custom-control-label");
+
+    let div_debit = getDiv ("custom-control custom-radio");
+    document.getElementsByTagName('div')[34].appendChild(div_debit);
+    let input_debit = getInput ("custom-control-input");
+    document.getElementsByTagName('div')[36].appendChild(input_debit);
+    input_debit.type = "radio";
+    input_debit.id = "debit";
+    input_debit.name = "paymentMethod";
+    input_debit.required = true;
+    let label_debit = getLabel ("Debit card", "debit");
+    document.getElementsByTagName('div')[36].appendChild(label_debit);
+    label_debit.setAttribute("class", "custom-control-label");
+
+    let div_paypal = getDiv ("custom-control custom-radio");
+    document.getElementsByTagName('div')[34].appendChild(div_paypal);
+    let input_paypal = getInput ("custom-control-input");
+    document.getElementsByTagName('div')[37].appendChild(input_paypal);
+    input_paypal.type = "radio";
+    input_paypal.id = "paypal";
+    input_paypal.name = "paymentMethod";
+    input_paypal.required = true;
+    let label_paypal = getLabel ("PayPal", "paypal");
+    document.getElementsByTagName('div')[37].appendChild(label_paypal);
+    label_paypal.setAttribute("class", "custom-control-label");
+
+    let div_card = getDiv ("row");
+    document.getElementsByTagName('form')[1].appendChild(div_card);
+    let div_name = getDiv ("col-md-5 mb-3");
+    document.getElementsByTagName('div')[38].appendChild(div_name);
+    let label_name = getLabel ("Name on card", "cc-name");
+    document.getElementsByTagName('div')[39].appendChild(label_name);
+    let input_name = getInput ("form-control");
+    document.getElementsByTagName('div')[39].appendChild(input_name);
+    input_name.type = "text";
+    input_name.placeholder = "";
+    input_name.id = "cc-name";
+    input_name.required = true;
+    let small = document.createElement("small");
+    let text_small = document.createTextNode("Full name as displayed on card");
+    small.appendChild(text_small);
+    small.setAttribute("class", "text-muted");
+    document.getElementsByTagName('div')[39].appendChild(small);
+    let div_name_card = getDiv("invalid-feedback");
+    document.getElementsByTagName('div')[39].appendChild(div_name_card);
+    let valid_name = document.createTextNode("Name on card is required");
+    div_name_card.appendChild(valid_name);
+
+    let div_number = getDiv ("col-md-5 mb-3");
+    document.getElementsByTagName('div')[38].appendChild(div_number);
+    let label_number = getLabel ("Credit card number", "cc-number");
+    document.getElementsByTagName('div')[41].appendChild(label_number);
+    let input_number = getInput ("form-control");
+    document.getElementsByTagName('div')[41].appendChild(input_number);
+    input_number.type = "text";
+    input_number.placeholder = "";
+    input_number.id = "cc-number";
+    input_number.required = true;
+    let div_valid_number= getDiv("invalid-feedback");
+    document.getElementsByTagName('div')[41].appendChild(div_valid_number);
+    let valid_number = document.createTextNode("Credit card number is required");
+    div_valid_number.appendChild(valid_number);
+
+    let div_exp = getDiv ("row");
+    document.getElementsByTagName('form')[1].appendChild(div_exp);
+    let div_expiration = getDiv ("col-md-3 mb-3");
+    document.getElementsByTagName('div')[43].appendChild(div_expiration);
+    let label_exp = getLabel ("Expiration", "cc-expiration");
+    document.getElementsByTagName('div')[44].appendChild(label_exp);
+    let input_exp = getInput ("form-control");
+    document.getElementsByTagName('div')[44].appendChild(input_exp);
+    input_exp.type = "text";
+    input_exp.placeholder = "";
+    input_exp.id = "cc-expiration";
+    input_exp.required = true;
+    let div_valid_exp = getDiv("invalid-feedback");
+    document.getElementsByTagName('div')[44].appendChild(div_valid_exp);
+    let valid_exp = document.createTextNode("Expiration date required");
+    div_valid_exp.appendChild(valid_exp);
+
+    let div_cvv = getDiv ("col-md-3 mb-3");
+    document.getElementsByTagName('div')[43].appendChild(div_cvv);
+    let label_cvv = getLabel ("CVV", "cc-cvv");
+    document.getElementsByTagName('div')[46].appendChild(label_cvv);
+    let input_cvv = getInput ("form-control");
+    document.getElementsByTagName('div')[46].appendChild(input_cvv);
+    input_cvv.type = "text";
+    input_cvv.placeholder = "";
+    input_cvv.id = "cc-cvv";
+    input_cvv.required = true;
+    let div_valid_cvv = getDiv("invalid-feedback");
+    document.getElementsByTagName('div')[46].appendChild(div_valid_cvv);
+    let valid_cvv = document.createTextNode("Security code required");
+    div_valid_cvv.appendChild(valid_cvv);
+
+    let hr_button = getHr ("mb-4");
+    document.getElementsByTagName('form')[1].appendChild(hr_button);
+    let button = document.createElement("button");
+    let text_button = document.createTextNode("Continue to checkout");
+    button.appendChild(text_button);
+    button.setAttribute("class", "btn btn-primary btn-lg btn-block");
+    document.getElementsByTagName('form')[1].appendChild(button);
 }
 
 function getDiv(name) {
@@ -281,14 +459,24 @@ function getSelect (classname, id_s, option) {
     select.setAttribute("class", classname);
     select.id = id_s;
     select.required = true;
+    return select;
+}
 
+function getOptions (id_s, option) {
     let chose = document.getElementById(id_s);
     let c = document.createElement("option");
     c.text = "Choose...";
     chose.options.add(c, 0);
+    c.value = "";
     let n = document.createElement("option");
     n.text = option;
     chose.options.add(n, 1);
+}
+
+function getHr(classname) {
+    let hr = document.createElement("hr");
+    hr.setAttribute("class", classname);
+    return hr;
 }
 
 function getLi (classname, n_ul) {

@@ -402,6 +402,25 @@ function getToDom() {
     button.appendChild(text_button);
     button.setAttribute("class", "btn btn-primary btn-lg btn-block");
     document.getElementsByTagName('form')[1].appendChild(button);
+
+    let footer = document.createElement("footer");
+    footer.setAttribute("class", "my-5 pt-5 text-muted text-center text-small");
+    document.getElementsByTagName('div')[0].appendChild(footer);
+    let p_footer = document.createElement("p");
+    p_footer.setAttribute("class", "mb-1");
+    let text_p = document.createTextNode("© 2017-2019 Company Name");
+    p_footer.appendChild(text_p);
+    document.getElementsByTagName('footer')[0].appendChild(p_footer);
+    
+    let ul_footer = document.createElement("ul");
+    ul_footer.setAttribute("class", "list-inline");
+    document.getElementsByTagName('footer')[0].appendChild(ul_footer);
+    let li_1 = getLi ("list-inline-item", 1);
+    getA ("Privacy", 5);
+    let li_2 = getLi ("list-inline-item", 1);
+    getA ("Terms", 6);
+    let li_3 = getLi ("list-inline-item", 1);
+    getA ("Terms", 7);
 }
 
 function getDiv(name) {
@@ -483,6 +502,14 @@ function getLi (classname, n_ul) {
     let li = document.createElement("li");
     li.setAttribute("class", classname);
     document.getElementsByTagName('ul')[n_ul].appendChild(li);
+}
+
+function getA (text, n_li) {
+    let a = document.createElement("a");
+    let text_a = document.createTextNode(text);
+    a.appendChild(text_a);
+    a.href = "#";
+    document.getElementsByTagName('li')[n_li].appendChild(a);
 }
 
 function getH6Cart(li_n, text, div_n, price){
